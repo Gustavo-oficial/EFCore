@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace ORM.EFCore.Domains
 {
-    public class Produto : BaseDomains
+    public class BaseDomains
     {
-        public string Nome { get; set; }
+        [Key]
+        public Guid Id { get; set; }
 
-        public float Preco { get; set; }
-
+        public BaseDomains()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

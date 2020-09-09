@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace ORM.EFCore.Domains
 {
-    public class PedidoItem
+    public class PedidoItem : BaseDomains
     {
-        [Key]
-        public Guid Id { get; set; }
 
         public Guid IdProduto { get; set; }        
         [ForeignKey ("IdProduto")]
