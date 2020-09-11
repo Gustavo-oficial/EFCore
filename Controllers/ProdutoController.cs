@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -12,46 +13,103 @@ namespace ORM.EFCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProdutosController : ControllerBase
+    public class ProdutoController : ControllerBase
     {
         private IProduto _produtoRepository;
 
-        public ProdutosController()
+        public ProdutoController()
         {
             _produtoRepository = new ProdutoRepository();
         }
 
         [HttpGet]
-        public List<Produto> Get()
+        public IActionResult Get()
         {
-            return _produtoRepository.Listar();
+            try
+            {
+                var produtos = _produtoRepository.Listar();
+
+                if (produtos.Count == 0)
+                    return NoContent();
+
+                return Ok(produtos);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
-        public Produto Get(Guid id)
+        public IActionResult Get(Guid id)
         {
-            return _produtoRepository.BuscarPorId(id);
+            try
+            {
+
+                Produto produto = _produtoRepository.BuscarPorId(id);
+
+
+                if (produto == null)
+                    return NotFound();
+
+                return Ok(produto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public void Post(Produto produto)
+        public IActionResult Post(Produto produto)
         {
-            _produtoRepository.Adicionar(produto);
+            try
+            {
+                _produtoRepository.Adicionar(produto);
+
+                return Ok(produto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("{id}")]
-        public void Put(Guid id, Produto produto)
+        public IActionResult Put(Guid id, Produto produto)
         {
-            produto.Id = id;
-            _produtoRepository.Alterar(produto);
+            try
+            {
+                var produtoTemp = _produtoRepository.BuscarPorId(id);
+
+                if (produtoTemp == null)
+                    return NotFound();
+
+                produto.Id = id;
+                _produtoRepository.Alterar(produto);
+
+                return Ok(produto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
-            _produtoRepository.Excluir(id);
+            try
+            {
+                _produtoRepository.Excluir(id);
+
+                return Ok(id);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
-
-

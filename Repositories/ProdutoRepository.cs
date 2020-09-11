@@ -21,6 +21,7 @@ namespace ORM.EFCore.Repositories
             try
             {
                 _ctx.Produto.Add(produto);
+                _ctx.SaveChanges();
             }
             catch (Exception ex)
             {
