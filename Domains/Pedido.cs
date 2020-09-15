@@ -13,5 +13,7 @@ namespace ORM.EFCore.Domains
 
         public DateTime OrderDate { get; set; }
 
+        public List<PedidoItem> PedidosItens { get; set; }
+
     }
 }

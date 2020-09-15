@@ -12,5 +12,7 @@ namespace ORM.EFCore.Domains
 
         public float Preco { get; set; }
 
+        public List<PedidoItem> PedidosItens { get; set; }
+
     }
 }

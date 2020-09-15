@@ -15,7 +15,7 @@ namespace ORM.EFCore.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private IProduto _produtoRepository;
+        private readonly IProduto _produtoRepository;
 
         public ProdutoController()
         {
@@ -32,12 +32,18 @@ namespace ORM.EFCore.Controllers
                 if (produtos.Count == 0)
                     return NoContent();
 
-                return Ok(produtos);
+                return Ok(new {
+                    totalCount = produtos.Count,
+                    data = produtos
+                });
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-
-                return BadRequest(ex.Message);
+                return BadRequest(new
+                {
+                    statusCode = 400,
+                    error = "Envie um email para email@email.com informando que ocorreu um erro no endpoint Get/produtos"
+                });
             }
         }
 
@@ -46,9 +52,7 @@ namespace ORM.EFCore.Controllers
         {
             try
             {
-
                 Produto produto = _produtoRepository.BuscarPorId(id);
-
 
                 if (produto == null)
                     return NotFound();
@@ -93,6 +97,7 @@ namespace ORM.EFCore.Controllers
             }
             catch (Exception ex)
             {
+
                 return BadRequest(ex.Message);
             }
         }
