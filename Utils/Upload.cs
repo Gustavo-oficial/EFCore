@@ -20,7 +20,7 @@ namespace ORM.EFCore.Utils
             file.CopyTo(streamImagem);
 
 
-            return "http://localhost:49752/upload/imagens/" + nomeArquivo;
+            return "http://localhost:44379/upload/imagens/" + nomeArquivo;
         }
     }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ORM.EFCore</name>
+    </assembly>
+    <members>
+        <member name="M:ORM.EFCore.Controllers.ProdutoController.Get">
+            <summary>
+            Ler todos os produtos cadastrados
+            </summary>
+            <returns>Lista de produtos</returns>
+        </member>
+        <member name="M:ORM.EFCore.Controllers.ProdutoController.Get(System.Guid)">
+            <summary>
+            Busca um único produto
+            </summary>
+            <param name="id">ID do produto</param>
+            <returns>Produto buscado</returns>
+        </member>
+        <member name="M:ORM.EFCore.Controllers.ProdutoController.Post(ORM.EFCore.Domains.Produto)">
+            <summary>
+            Cadastra um produto na aplicação
+            </summary>
+            <param name="produto">Obejto completo de um produto</param>
+            <returns>Produto cadastrado</returns>
+        </member>
+        <member name="M:ORM.EFCore.Controllers.ProdutoController.Put(System.Guid,ORM.EFCore.Domains.Produto)">
+            <summary>
+            Altera determinado produto da aplicação
+            </summary>
+            <param name="id">ID do Produto</param>
+            <param name="produto">Objeto alterado do Produto</param>
+            <returns>Produto alterado</returns>
+        </member>
+        <member name="M:ORM.EFCore.Controllers.ProdutoController.Delete(System.Guid)">
+            <summary>
+            Exclui um produto do sistema
+            </summary>
+            <param name="id">ID do produto a ser excluído</param>
+            <returns>ID do produto excluído</returns>
+        </member>
+        <member name="M:ORM.EFCore.Repositories.ProdutoRepository.Adicionar(ORM.EFCore.Domains.Produto)">
+            <summary>
+            Adiciona um novo produto
+            </summary>
+            <param name="produto">Produto a ser adcionado</param>
+        </member>
+        <member name="M:ORM.EFCore.Repositories.ProdutoRepository.Alterar(ORM.EFCore.Domains.Produto)">
+            <summary>
+            Edita um produto
+            </summary>
+            <param name="produto">Dados do produto</param>
+        </member>
+        <member name="M:ORM.EFCore.Repositories.ProdutoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca um produto pelo seu Id
+            </summary>
+            <param name="id">Id do produto</param>
+            <returns></returns>
+        </member>
+        <member name="M:ORM.EFCore.Repositories.ProdutoRepository.BuscarPorNome(System.String)">
+            <summary>
+            Busca produto pelo nome
+            </summary>
+            <param name="nome">Nome do produto</param>
+            <returns>Retorna um produto</returns>
+        </member>
+        <member name="M:ORM.EFCore.Repositories.ProdutoRepository.Excluir(System.Guid)">
+            <summary>
+            Remove um produto
+            </summary>
+            <param name="id">Id do Produto</param>
+        </member>
+        <member name="M:ORM.EFCore.Repositories.ProdutoRepository.Listar">
+            <summary>
+            Lista todos os produto
+            </summary>
+            <returns>Lista de Produtos</returns>
+        </member>
+    </members>
+</doc>

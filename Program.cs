@@ -24,6 +24,6 @@ namespace ORM.EFCore
                     webBuilder.UseStartup<Startup>();
                 });
 
-#pragma warning restore CS1591
     }
+#pragma warning restore CS1591
 }

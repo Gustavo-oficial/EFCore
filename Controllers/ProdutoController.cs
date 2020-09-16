@@ -23,6 +23,11 @@ namespace ORM.EFCore.Controllers
             _produtoRepository = new ProdutoRepository();
         }
 
+        /// <summary>
+        /// Ler todos os produtos cadastrados
+        /// </summary>
+        /// <returns>Lista de produtos</returns>
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,6 +53,12 @@ namespace ORM.EFCore.Controllers
             }
         }
 
+        /// <summary>
+        /// Busca um único produto
+        /// </summary>
+        /// <param name="id">ID do produto</param>
+        /// <returns>Produto buscado</returns>
+
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -66,6 +77,11 @@ namespace ORM.EFCore.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um produto na aplicação
+        /// </summary>
+        /// <param name="produto">Obejto completo de um produto</param>
+        /// <returns>Produto cadastrado</returns>
         [HttpPost]
         public IActionResult Post([FromForm]Produto produto)
         {
@@ -87,6 +103,12 @@ namespace ORM.EFCore.Controllers
             }
         }
 
+        /// <summary>
+        /// Altera determinado produto da aplicação
+        /// </summary>
+        /// <param name="id">ID do Produto</param>
+        /// <param name="produto">Objeto alterado do Produto</param>
+        /// <returns>Produto alterado</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Produto produto)
         {
@@ -108,6 +130,12 @@ namespace ORM.EFCore.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Exclui um produto do sistema
+        /// </summary>
+        /// <param name="id">ID do produto a ser excluído</param>
+        /// <returns>ID do produto excluído</returns>
 
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)

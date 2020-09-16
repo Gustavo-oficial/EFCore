@@ -67,3 +67,5 @@ C:\Users\FamilySilvaFelix\source\repos\ORM.EFCore\bin\Debug\netcoreapp3.1\Newton
 C:\Users\FamilySilvaFelix\source\repos\ORM.EFCore\obj\Debug\netcoreapp3.1\ORM.EFCore.csproj.CoreCompileInputs.cache
 C:\Users\FamilySilvaFelix\source\repos\ORM.EFCore\obj\Debug\netcoreapp3.1\ORM.EFCore.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\FamilySilvaFelix\source\repos\ORM.EFCore\obj\Debug\netcoreapp3.1\ORM.EFCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\FamilySilvaFelix\source\repos\ORM.EFCore\bin\Debug\netcoreapp3.1\ORM.EFCore.xml
+C:\Users\FamilySilvaFelix\source\repos\ORM.EFCore\obj\Debug\netcoreapp3.1\ORM.EFCore.xml

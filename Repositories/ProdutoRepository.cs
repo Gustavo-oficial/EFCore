@@ -16,6 +16,10 @@ namespace ORM.EFCore.Repositories
             _ctx = new PedidoContext();
         }
 
+        /// <summary>
+        /// Adiciona um novo produto
+        /// </summary>
+        /// <param name="produto">Produto a ser adcionado</param>
         public void Adicionar(Produto produto)
         {
             try
@@ -29,6 +33,10 @@ namespace ORM.EFCore.Repositories
             }
         }
 
+        /// <summary>
+        /// Edita um produto
+        /// </summary>
+        /// <param name="produto">Dados do produto</param>
         public void Alterar(Produto produto)
         {
             try
@@ -50,6 +58,11 @@ namespace ORM.EFCore.Repositories
             }
         }
 
+        /// <summary>
+        /// Busca um produto pelo seu Id
+        /// </summary>
+        /// <param name="id">Id do produto</param>
+        /// <returns></returns>
         public Produto BuscarPorId(Guid id)
         {
             try
@@ -61,6 +74,12 @@ namespace ORM.EFCore.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Busca produto pelo nome
+        /// </summary>
+        /// <param name="nome">Nome do produto</param>
+        /// <returns>Retorna um produto</returns>
 
         public List<Produto> BuscarPorNome(string nome)
         {
@@ -74,6 +93,11 @@ namespace ORM.EFCore.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Remove um produto
+        /// </summary>
+        /// <param name="id">Id do Produto</param>
 
         public void Excluir(Guid id)
         {
@@ -94,6 +118,10 @@ namespace ORM.EFCore.Repositories
             }
         }
 
+        /// <summary>
+        /// Lista todos os produto
+        /// </summary>
+        /// <returns>Lista de Produtos</returns>
         public List<Produto> Listar()
         {
             try
