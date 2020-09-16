@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using ORM.EFCore.Domains;
 using ORM.EFCore.Interface;
 using ORM.EFCore.Repositories;
+using ORM.EFCore.Utils;
 
 namespace ORM.EFCore.Controllers
 {
@@ -37,7 +38,7 @@ namespace ORM.EFCore.Controllers
                     data = produtos
                 });
             }
-            catch(Exception ex)
+            catch(Exception )
             {
                 return BadRequest(new
                 {
@@ -66,10 +67,16 @@ namespace ORM.EFCore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Produto produto)
+        public IActionResult Post([FromForm]Produto produto)
         {
             try
             {
+                if (produto.Imagem != null)
+                {
+                    var urlImagem = Upload.Local(produto.Imagem);
+
+                    produto.UrlImagem = urlImagem;
+                }
                 _produtoRepository.Adicionar(produto);
 
                 return Ok(produto);

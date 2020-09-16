@@ -15,7 +15,10 @@ namespace ORM.EFCore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=loja;User ID=sa;Password=sa132");
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=loja;User ID=sa;Password=sa132");
+
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }
