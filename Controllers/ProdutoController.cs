@@ -69,7 +69,14 @@ namespace ORM.EFCore.Controllers
                 if (produto == null)
                     return NotFound();
 
-                return Ok(produto);
+                Moeda dolar = new Moeda();
+
+                return Ok(new
+                {
+                    produto,
+                    valorDolar = produto.Preco / dolar.GetDolarValue()
+                }  
+                 );
             }
             catch (Exception ex)
             {
